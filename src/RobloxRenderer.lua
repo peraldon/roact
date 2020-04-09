@@ -63,12 +63,6 @@ local function setRobloxInstanceProperty(hostObject, key, newValue)
 end
 
 local function animateRobloxInstanceProperty(hostObject, key, newAnimation)
-	for a, b in pairs(newAnimation) do
-		print(a, b)
-	end
-
-	print(tostring(newAnimation))
-
 	local newValue = newAnimation:getValue()
 	if newValue == nil then
 		local hostClass = hostObject.ClassName
