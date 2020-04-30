@@ -26,7 +26,6 @@ function ElementKindInternal.of(value)
 	if typeof(value) ~= "table" then
 		return nil
 	end
-
 	return value[ElementKind]
 end
 

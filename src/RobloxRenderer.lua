@@ -64,6 +64,12 @@ end
 
 local function animateRobloxInstanceProperty(hostObject, key, newAnimation)
 	local newValue = newAnimation:getValue()
+	local startValue = newAnimation:getStartValue()
+
+	if startValue then
+		hostObject[key] = startValue
+	end
+
 	if newValue == nil then
 		local hostClass = hostObject.ClassName
 		local _,
@@ -72,10 +78,7 @@ local function animateRobloxInstanceProperty(hostObject, key, newAnimation)
 	end
 
 	local tweenInfo = newAnimation:getTweenInfo()
-	local tween =
-		TweenService:Create(
-		hostObject,
-		tweenInfo,
+	local tween = TweenService:Create(hostObject, tweenInfo,
 		{
 			[key] = newValue
 		}
